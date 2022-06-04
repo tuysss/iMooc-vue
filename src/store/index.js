@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+// 记录user对象
 export default new Vuex.Store({
   state: {
     user: {

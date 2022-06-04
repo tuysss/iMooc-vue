@@ -1,13 +1,11 @@
 <template>
   <div>
-    hello,world.
   </div>
-
 </template>
 
 <script>
 export default {
-  name: 'Appindex'
+  name: 'LearnDisplay'
 }
 </script>
 

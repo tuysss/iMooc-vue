@@ -12,9 +12,9 @@
                   auto-complete="off" placeholder="密码"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-radio v-model="loginForm.role" label="0">管理员</el-radio>
-        <el-radio v-model="loginForm.role" label="1">教师</el-radio>
-        <el-radio v-model="loginForm.role" label="2">学生</el-radio>
+        <el-radio v-model="loginForm.role" label=0>管理员</el-radio>
+        <el-radio v-model="loginForm.role" label=1>教师</el-radio>
+        <el-radio v-model="loginForm.role" label=2>学生</el-radio>
       </el-form-item>
       <el-form-item style="width: 100%">
         <el-button type="primary" style="width: 100%;background: #505458;border: none" v-on:click="login">登录</el-button>
@@ -32,19 +32,18 @@ export default {
       loginForm: {
         username: '',
         password: '',
-        role: ''
+        role: 0
       },
       responseResult: []
     }
   },
-
   methods: {
     login () {
       var _this = this
       console.log(this.$store.state)
       this.$axios
-        .post('/login', {
-          username: this.loginForm.username,
+        .post('/login', { // post请求，axios携带参数传给接口
+          name: this.loginForm.username,
           password: this.loginForm.password,
           role: this.loginForm.role
         })
@@ -52,8 +51,12 @@ export default {
           if (successResponse.data.code === 200) {
             // var data = this.loginForm
             _this.$store.commit('login', _this.loginForm)
-            var path = this.$route.query.redirect
-            this.$router.replace({path: path === '/' || path === undefined ? '/index' : path})
+            // var path = this.$route.query.redirect
+            console.log(this.loginForm.role)
+            if (this.loginForm.role == 2) {
+              this.$router.replace({path: '/stu/home'})
+            }
+            // this.$router.replace({path: path === '/' || path === undefined ? '/index' : path})
           }
         })
         .catch(failResponse => {
@@ -61,6 +64,7 @@ export default {
     }
   }
 }
+
 </script>
 
 <style>
