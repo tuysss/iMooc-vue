@@ -3,28 +3,15 @@
 > A Vue.js project
 
 ## Build Setup
-
+1. 安装node.js到全局
+2. 本地部署vue.js项目
 ``` bash
-# install dependencies
-npm install
+# install dependencies 安装依赖 版本号建议@3
+npm install @3
 
-# serve with hot reload at localhost:8080
+# serve with hot reload at localhost:8081
 npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## 组件支持
++ ElementUI
