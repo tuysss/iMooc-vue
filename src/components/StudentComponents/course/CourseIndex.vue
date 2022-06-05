@@ -23,8 +23,8 @@ export default {
 
 <style scoped>
 .courses-area {
-  width: 990px;
-  margin-left: auto;
+  width: 770px;
+  margin-left: 50px;
   margin-right: auto;
 }
 </style>

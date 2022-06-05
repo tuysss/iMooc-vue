@@ -53,8 +53,12 @@ export default {
             _this.$store.commit('login', _this.loginForm)
             // var path = this.$route.query.redirect
             console.log(this.loginForm.role)
-            if (this.loginForm.role == 2) {
+            if (this.loginForm.role === '2') {
               this.$router.replace({path: '/stu/home'})
+            } else if (this.loginForm.role === '1') {
+              this.$router.replace({path: '/tea/home'})
+            } else {
+              alert('未选中权限 或者 该权限尚未开发，敬请期待^_^')
             }
             // this.$router.replace({path: path === '/' || path === undefined ? '/index' : path})
           }

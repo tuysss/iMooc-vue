@@ -1,17 +1,12 @@
-// 对照/library/Books.vue
 <template>
   <div>
-    <el-row style="height: 840px;"
-            v-for="item in courses.slice((currentPage-1)*pageSize,currentPage*pageSize)"
-            :key="item.id">
-      <el-col>
-        <el-card :body-style="{ padding: '0px' }">
-          <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png" class="cover"/>
-          <div style="padding: 14px;"/>
-            <span>{{item.title}}</span>
-            <div class="bottom clearfix">
-              <el-button type="success" plain @click="selectCourse(item.id)">选课</el-button>
-            </div>
+    <el-row style="height: 340px;">
+        <el-col :span="12" v-for="item in courses" :key="item.id" :offset="0">
+        <el-card :body-style="{ padding: '5px' }" shadow="hover">
+          <img src="https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg" class="cover"/>
+          <div style="padding: 1px;"/>
+            <span class="title">{{item.title}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <el-button type="success" plain @click="selectCourse(3, item.id)">选课</el-button>
         </el-card>
       </el-col>
     </el-row>
@@ -27,6 +22,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'CourseDisplay',
   data () {
@@ -52,14 +48,16 @@ export default {
       this.currentPage = currentPage
       console.log(this.currentPage)
     },
-    selectCourse (cid) {
+    selectCourse (sid, cid) {
+      console.log(sid)
+      console.log(cid)
       this.$confirm('确认选课?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'
       }).then(() => {
         this.$axios
-          .post('/choose', {cid: cid}).then(resp => {
+          .post('/choose', {cid: cid, sid: sid}).then(resp => {
             if (resp && resp.status === 200) {
               alert('您已成功选课！')
             }

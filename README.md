@@ -15,3 +15,8 @@ npm run dev
 
 ## 组件支持
 + ElementUI
+
+## 遗留问题
+- [ ] stu-learn axios的post传递参数问题
+- [ ] stu-course 选课vuex获取全局的userid问题
+-

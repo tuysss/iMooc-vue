@@ -12,7 +12,7 @@
     </el-menu-item>
     <a href="#nowhere" style="color: #222;float: right;padding: 20px;">更多功能</a>
     <i class="el-icon-menu" style="float:right;font-size: 45px;color: #222;padding-top: 8px"></i>
-    <span style="position: absolute;padding-top: 20px;right: 43%;font-size: 20px;font-weight: bold">White Jotter - Your Mind Palace</span>
+    <span style="position: absolute;padding-top: 20px;right: 43%;font-size: 20px;font-weight: bold">博学之，审问之，慎思之</span>
   </el-menu>
 </template>
 
@@ -24,9 +24,9 @@ export default {
       navList: [
         {name: '/stu/index', navItem: '首页'},
         {name: '/stu/courses', navItem: '全部课程'},
-        {name: '/stu/course/learn', navItem: '我的学习'},
-        {name: 'stu/messagebox', navItem: '信箱'},
-        {name: 'stu/admin', navItem: '个人中心'}
+        {name: '/stu/learn', navItem: '我的学习'},
+        {name: '/stu/jotter', navItem: '信箱'},
+        {name: '/stu/info', navItem: '个人中心'}
       ]
     }
   }
